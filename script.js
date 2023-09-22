@@ -18,7 +18,7 @@ var stored5 = localStorage.getItem('memo5')
 var stored6 = localStorage.getItem('memo6')
 var stored7 = localStorage.getItem('memo7')
 var stored8 = localStorage.getItem('memo8')
-var stored9 = localStorage.getItem('memo8')
+var stored9 = localStorage.getItem('memo9')
 
 // section for grabbing localstorage ^^^^
 
