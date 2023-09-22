@@ -12,6 +12,13 @@ var memos = 9; //setting amount of Memos we can store. if we want to work the lo
 //Section grabs the localstorage item we set.
 var stored = localStorage.getItem('memo1')  
 var stored2 = localStorage.getItem('memo2')
+var stored3 = localStorage.getItem('memo3')
+var stored4 = localStorage.getItem('memo4')
+var stored5 = localStorage.getItem('memo5')
+var stored6 = localStorage.getItem('memo6')
+var stored7 = localStorage.getItem('memo7')
+var stored8 = localStorage.getItem('memo8')
+var stored9 = localStorage.getItem('memo8')
 
 // section for grabbing localstorage ^^^^
 
@@ -33,12 +40,19 @@ var fivePm = $('#hour-17');
 // assign value of our specific ids here .
 nineAm.children('.description').get(0).value = stored;
 tenAm.children('.description').get(0).value = stored2;
+elevenAm.children('.description').get(0).value = stored3;
+twelveAm.children('.description').get(0).value = stored4;
+onePm.children('.description').get(0).value = stored5;
+twoPm .children('.description').get(0).value = stored6;
+threePm.children('.description').get(0).value = stored7;
+fourPm.children('.description').get(0).value = stored8;
+fivePm.children('.description').get(0).value = stored9;
 
 
 
 
-
-$(function () {
+$(function () { //outside code is run before anything as I want it to load the same time everything else does.
+  currentHour = 9;
   
   var elements = [ // creating an object array to hold our value of what the id is hour wise, and selecting the the element to edit.
     { hour: 9, element: nineAm },
@@ -63,35 +77,61 @@ $(function () {
     }
   });
 
-  console.log(currentHour);
+  
+
+  buttonListEl.on('click', function (event) { //button listener.
+    event.preventDefault();
+  
+  var buttonDate = $('<button>'); //the object we are in, this will return 
+  var parentDetail = $(this).parent(); //grabs id of the button we pressed.
+  var parentSave = $(this).parent().attr("id"); //grabs the id, we want to save the memo into this one.
+  var memo = parentDetail.children('.description').get(0).value; //grabs the text content of the box we are in.
+
+  console.log(memo); //Console logging what text should be inside memo on button press. This will change depending on the content inside our textbox.
+  
+  
+  switch (parentSave) { //using a switch statement to save memos to a specific slot depending on what parentsave (aka the id value ex.hour-9) instead of multiple if statements.
+    case "hour-9":
+      localStorage.setItem('memo1', memo);
+      break;
+    case "hour-10":
+      localStorage.setItem('memo2', memo);
+      break;
+    case "hour-11":
+      localStorage.setItem('memo3', memo);
+      break;
+    case "hour-12":
+      localStorage.setItem('memo4', memo);
+      break;
+      case "hour-13":
+      localStorage.setItem('memo5', memo);
+      break;
+      case "hour-14":
+      localStorage.setItem('memo6', memo);
+      break;
+      case "hour-15":
+      localStorage.setItem('memo7', memo);
+      break;
+      case "hour-16":
+      localStorage.setItem('memo8', memo);
+      break;
+      case "hour-17":
+      localStorage.setItem('memo9', memo);
+      break;
+  }
+  
+  
+   //setting item to local storage.
+  
+  
+  console.log(parentSave); //console log out our current hour box.
+  
+ //returning stored value.
+  
+  });
 });
 
-buttonListEl.on('click', function (event) { //button listener.
-  event.preventDefault();
 
-var buttonDate = $('<button>'); //the object we are in, this will return 
-var parentDetail = $(this).parent(); //grabs id of the button we pressed.
-var parentSave = $(this).parent().attr("id"); //grabs the id, we want to save the memo into this one.
-var memo = parentDetail.children('.description').get(0).value; //grabs the text content of the box we are in.
-
-
-if (parentSave === "hour-9"){
-  localStorage.setItem('memo1', memo);
-}
-
-if (parentSave === "hour-10"){
-  localStorage.setItem('memo2', memo);
-}
-
-
- //setting item to local storage.
-
-console.log(stored);
-console.log(parentSave);
-
-return stored;
-
-});
 
 
 
