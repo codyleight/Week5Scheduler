@@ -7,9 +7,9 @@ var currentHour = now.getHours();
 
 $('#currentDay').text(today.format('MMM D, YYYY')); // sets time at top to our current date.
 
-var memos = 9; //setting amount of Memos we can store. if we want to work the local storage with an index.
+// var memos = 9; potentially can use this so getItems from an array.
 
-//Section grabs the localstorage item we set.
+//Section grabs the localstorage item we set. NOTE: we could use a forEach statement but our object array would look the same  and would be a bit more code.
 var stored = localStorage.getItem('memo1')  
 var stored2 = localStorage.getItem('memo2')
 var stored3 = localStorage.getItem('memo3')
@@ -37,7 +37,7 @@ var fivePm = $('#hour-17');
 
 
 
-// assign value of our specific ids here .
+// assign value of our specific ids here . NOTE: we could use a forEach statement but our object array would look the same and would be a bit more code. Could be usefull in other cases.
 nineAm.children('.description').get(0).value = stored;
 tenAm.children('.description').get(0).value = stored2;
 elevenAm.children('.description').get(0).value = stored3;
@@ -52,7 +52,7 @@ fivePm.children('.description').get(0).value = stored9;
 
 
 $(function () { //outside code is run before anything as I want it to load the same time everything else does.
-  currentHour = 9;
+  
   
   var elements = [ // creating an object array to hold our value of what the id is hour wise, and selecting the the element to edit.
     { hour: 9, element: nineAm },
