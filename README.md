@@ -17,7 +17,8 @@ Use a Time Slot to set a memo and save your memo to the localstorage. You can al
 
 Cody Thompson
 Repo location on pc: - C:\Users\JC\Desktop\Bootcamp2\Week5Scheduler
-used w3 schools and other examples.
+used w3 schools.
+Used the Xpert Learning assistant to condense my code. Before implementing any suggestions I made sure to understand why and what I was doing. Mainly this was to condense If Statements.
 Worked with Bijan Olfati and Jason Mason.
 
 ## Photo Preview of Website
