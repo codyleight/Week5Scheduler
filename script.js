@@ -36,6 +36,13 @@ var fivePm = $('#hour-17');
 // Grabbing our specific id's to overwrite the text based upon localstorage ^^^^
 
 
+/*var hours = []; Need to test this for future lessons.
+for (var i = 9; i <= 17; i++) {
+  hours.push($('#hour-' + i));
+}
+*/
+
+
 
 // assign value of our specific ids here . NOTE: we could use a forEach statement but our object array would look the same and would be a bit more code. Could be usefull in other cases.
 nineAm.children('.description').get(0).value = stored;
@@ -54,7 +61,7 @@ fivePm.children('.description').get(0).value = stored9;
 $(function () { //outside code is run before anything as I want it to load the same time everything else does.
   
   
-  var elements = [ // creating an object array to hold our value of what the id is hour wise, and selecting the the element to edit.
+  var elements = [ // creating an object array to hold our value of what the id is hour wise, and selecting the the element to edit. we still have to assign the hour a value so we can use it in our math.
     { hour: 9, element: nineAm },
     { hour: 10, element: tenAm },
     { hour: 11, element: elevenAm},
@@ -67,7 +74,7 @@ $(function () { //outside code is run before anything as I want it to load the s
     
   ];
   
-  elements.forEach(({ hour, element }) => {
+  elements.forEach(({ hour, element }) => { //for each hour and the hours element we are running this to check the current value of the hour and math to see if it is past present or future.
     if (currentHour === hour) {
       element.addClass("present");
     } else if (currentHour > hour) {
@@ -82,7 +89,7 @@ $(function () { //outside code is run before anything as I want it to load the s
   buttonListEl.on('click', function (event) { //button listener.
     event.preventDefault();
   
-  var buttonDate = $('<button>'); //the object we are in, this will return 
+  var buttonDate = $('<button>'); //the object we are in, this will return - we used this for testing but did not need it in the finalized project.
   var parentDetail = $(this).parent(); //grabs id of the button we pressed.
   var parentSave = $(this).parent().attr("id"); //grabs the id, we want to save the memo into this one.
   var memo = parentDetail.children('.description').get(0).value; //grabs the text content of the box we are in.
